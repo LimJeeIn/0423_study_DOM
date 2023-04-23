@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <h1>크롱이의 todo list</h1>
+    <p>1. 오늘 저녁에는 산책을 하겠다.<button type="button">삭제</button></p>
+    <p>2. 후식으로 냠냠이를 먹겠다.<button type="button">삭제</button></p>
+    <p>3. 나는 짱이될것이다.<button type="button">삭제</button></p>
+    <script>
+      //   1. <button class="btn-select">최애 프로그래밍 언어</button>를 누르면
+      // <ul class="list">가 뜸. 즉, <button class="btn-select">에 class='on'을 toggle해줘야함.
+      const btn = document.querySelector(".btn-select");
+
+      btn.addEventListener("click", function () {
+        // const list = document.queryselector(".list");
+        btn.classList.add("on");
+      });
+
+      // //2. 각각의 <button type="button"></button> 누르면('click')
+      // 최애프로그래밍 언어의 textContent가 누른버튼에따라 python 부터 c/c++으로 바뀜
+      //즉,버튼을 선택하면 최애프로그래밍 언어의 textContent가 바뀌고 class= on을 remove해줌으로써 list목록이 없어짐.
+
+      const li = document.querySelectorAll("li");
+
+      li.forEach((item) => {
+        item.addEventListener("click", () => {
+          btnSelect.textContent = item.textContent;
+          btnSelect.classList.remove("on");
+          //li를 선택하면 textContent가 바뀌고 on을 remove해줌으로써 list가 없어짐.
+        });
+      });
+
+      // 1. P 태그를 클릭하면 p 태그의 글을 출력하는 alert 창을 띄워주세요!
+      //힌트. 우선 p를 다 가져와서 변수에저장해야겠죠?!
+
+      // 2. 삭제 버튼을 클릭하면 삭제할 것인지를 물어보는 confirm 창을 띄워주고, 만약 확인을 누르면 P태그를 삭제합니다.
+
+      //힌트. 우선 삭제버튼을 다 가져와서 변수에 저장합니다!
+      // 이벤트가 전파되는걸 마지막에 막아야합니다
+
+      //2-1. 버튼에서 가장가까운 p를 가져오는 코드는?
+
+      // //         1. P 태그를 클릭하면 p 태그의 컨텐츠를 출력하는 alert 창을 띄워주고
+
+      // const p = document.querySelectorAll('p');
+
+      // p.forEach((item)=>{
+      //   item.addEventListener('click',()=>{
+      //     alert(item.textContent.slice(0,-2));
+
+      //   });
+
+      // });
+
+      // // 2. 삭제 버튼을 클릭하면 삭제할 것인지를 물어보는 confirm 창을 띄워주고, 확인을 누르면 P태그를 삭제합니다.
+      // //p를 가져오는방법..?closest
+      // const btnsDelete = document.querySelectorAll('button');
+
+      // btnsDelete.forEach((item)=>{
+      //   item.addEventListener('click',(e)=>{ // e를 안걸면 클릭시 p태그 텍스트가 같이 뜬다, 이벤트 버블링을 통해서 부모 이벤트까지 전파가 돼서 부모 이벤트(p)까지 실행이된다
+      //     let can =  confirm('삭제할거니?'); // 확인 누르면 let can 에 true  할당됨
+      //     if(can){
+      //       item.closest('p').remove(); // 삭제를 누른 버튼에 가장 가까운 p를 삭제
+      //     }
+      //      e.stopPropagation() // 취소 눌렀을때 이벤트 전파가 또 발생하기 때문에  stopPropagation로 막아줌
+      //   })
+      // })
+    </script>
+  </body>
+</html>
